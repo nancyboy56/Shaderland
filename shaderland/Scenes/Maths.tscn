@@ -14,25 +14,9 @@ size = Vector2(10, 10)
 subdivide_width = 32
 subdivide_depth = 32
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_8bjr1"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_18j80"]
-noise = SubResource("FastNoiseLite_8bjr1")
-seamless = true
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_18j80"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n7b0j"]
-noise = SubResource("FastNoiseLite_18j80")
-seamless = true
-as_normal_map = true
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j5upr"]
 render_priority = 0
 shader = ExtResource("1_8bjr1")
-shader_parameter/noise = SubResource("NoiseTexture2D_18j80")
-shader_parameter/height_scale = 0.5
-shader_parameter/normalmap = SubResource("NoiseTexture2D_n7b0j")
 
 [node name="Node3D" type="Node3D" unique_id=2049355360]
 
@@ -51,9 +35,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_18j80")
 [node name="Plane" type="StaticBody3D" parent="." unique_id=648732943]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Plane" unique_id=1430209956]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6524581, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55779254, 0)
 mesh = SubResource("PlaneMesh_n7b0j")
 surface_material_override/0 = SubResource("ShaderMaterial_j5upr")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1293621746]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5119063, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4519454, 0)
