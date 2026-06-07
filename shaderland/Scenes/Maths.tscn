@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dblf3g5fwwy6y"]
+
+[ext_resource type="Shader" uid="uid://slyu6gjar66i" path="res://Shaders/test.gdshader" id="1_8bjr1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mav4l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8bjr1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18j80"]
+albedo_color = Color(0.82743657, 0.36081564, 0.57692456, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n7b0j"]
+size = Vector2(10, 10)
+subdivide_width = 64
+subdivide_depth = 64
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8bjr1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_18j80"]
+noise = SubResource("FastNoiseLite_8bjr1")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_18j80"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n7b0j"]
+noise = SubResource("FastNoiseLite_18j80")
+as_normal_map = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5upr"]
+render_priority = 0
+shader = ExtResource("1_8bjr1")
+shader_parameter/noise = SubResource("NoiseTexture2D_18j80")
+shader_parameter/height_scale = 0.5
+shader_parameter/normalmap = SubResource("NoiseTexture2D_n7b0j")
+
+[node name="Node3D" type="Node3D" unique_id=2049355360]
+
+[node name="Cube" type="StaticBody3D" parent="." unique_id=1885072821]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8183513)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube" unique_id=1567291080]
+shape = SubResource("BoxShape3D_mav4l")
+debug_color = Color(1.540184e-06, 0.59405667, 0.73483676, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube" unique_id=2004940676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00062811375, -0.18185255, -0.005771756)
+mesh = SubResource("BoxMesh_8bjr1")
+surface_material_override/0 = SubResource("StandardMaterial3D_18j80")
+
+[node name="Plane" type="StaticBody3D" parent="." unique_id=648732943]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane" unique_id=1430209956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6524581, 0)
+mesh = SubResource("PlaneMesh_n7b0j")
+surface_material_override/0 = SubResource("ShaderMaterial_j5upr")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1293621746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.093668, 0)
