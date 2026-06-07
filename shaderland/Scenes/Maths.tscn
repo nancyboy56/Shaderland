@@ -11,18 +11,20 @@ albedo_color = Color(0.82743657, 0.36081564, 0.57692456, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n7b0j"]
 size = Vector2(10, 10)
-subdivide_width = 64
-subdivide_depth = 64
+subdivide_width = 32
+subdivide_depth = 32
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8bjr1"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_18j80"]
 noise = SubResource("FastNoiseLite_8bjr1")
+seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_18j80"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n7b0j"]
 noise = SubResource("FastNoiseLite_18j80")
+seamless = true
 as_normal_map = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j5upr"]
@@ -54,4 +56,4 @@ mesh = SubResource("PlaneMesh_n7b0j")
 surface_material_override/0 = SubResource("ShaderMaterial_j5upr")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1293621746]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.093668, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5119063, 0)
